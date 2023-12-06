@@ -11,9 +11,7 @@
 
 #define IS_ALIGNED_POW2(value, align) (((value) & ((align) - 1)) == 0)
 
-
 /* Making sure the borders between secure and non-secure regions are aligned with the SPU regions */
-/* ToDo (Dod): currently our alignment differs, do not change for now/ever to preserve OTA functionaly
 #if !(IS_ALIGNED_POW2(PM_TFM_NONSECURE_ADDRESS, CONFIG_NRF_SPU_FLASH_REGION_SIZE))
 #pragma message "\n\n!!!Partition alignment error!!!"\
                 "\nThe non-secure start address in pm_static.yml"\
@@ -23,7 +21,6 @@
                 "\nfor more information.\n\n"
 #error "TF-M non-secure start address is not aligned on SPU region size"
 #endif
-*/
 
 #if !(IS_ALIGNED_POW2(PM_SRAM_NONSECURE_ADDRESS, SPU_SRAM_REGION_SIZE))
 #error "SRAM non-secure address size is not aligned on SPU region size"
