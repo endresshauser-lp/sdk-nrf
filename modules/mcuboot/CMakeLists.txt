@@ -149,6 +149,7 @@ if(CONFIG_BOOTLOADER_MCUBOOT)
       # to be applied by mcuboot, the application is required to write the
       # IMAGE_MAGIC into the image trailer.
       ${sign_cmd}
+      -c #  Output a non-encrypted image with encryption capabilities,so it can be installed in the primary slot, and encrypted when swapped to the secondary.
       ${sign_dependencies}
       ${SIGN_ARG_ROM_FIXED}
       --slot-size ${SIGN_ARG_SLOT_SIZE}
